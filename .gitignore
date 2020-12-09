@@ -7,6 +7,9 @@
 node_modules/
 dist/
 
+#files 
+*.milade-key
+*.milade-key.pub
 #environment variable 
 *.env
 # Compiled Java class files
