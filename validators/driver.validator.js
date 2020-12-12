@@ -13,7 +13,9 @@ const LoginValidator = [
 const WithdrawalValidator = [
     body('amount', 'amount required').exists(),
     body('transaction_type', 'transaction type required').exists().trim(),
-    body('cloud_uuid', 'user cloud uuid required').exists().trim()
+    body('cloud_uuid', 'user cloud uuid required').exists().trim(),
+    body('withdrawal_id', 'withdrawal identification required').exists(),
+    body('payment_referenceId', 'payment reference required').exists()
 ];
 
 const UpdateBankDetailsValidator = [

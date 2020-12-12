@@ -25,19 +25,23 @@ const DebitCardValidator = [
     body('cloud_uuid', 'user cloud uuid required').exists().trim(),
     body('receiver_cloud_uuid', 'receivers cloud uuid required').exists().trim(),
     body('phonenumber', 'phone number required').exists().trim(),
-    body('paymentMadeType', 'payment type is required').exists().trim().isIn(['ride', 'bike', 'delivery'])
+    body('paymentMadeType', 'payment type is required').exists().trim().isIn(['ride', 'bike', 'delivery']),
+    body('payment_referenceId', 'payment reference required').exists()
 ];
 
 const FundWalletValidator =[
     body('amount', 'amount required').exists(),
     body('transaction_type', 'transaction type required').exists().trim(),
-    body('cloud_uuid', 'user cloud uuid required').exists().trim()
+    body('cloud_uuid', 'user cloud uuid required').exists().trim(),
+    body('payment_referenceId', 'payment reference required').exists()
 ];
 
 const WithdrawalValidator = [
     body('amount', 'amount required').exists(),
     body('transaction_type', 'transaction type required').exists().trim(),
-    body('cloud_uuid', 'user cloud uuid required').exists().trim()
+    body('cloud_uuid', 'user cloud uuid required').exists().trim(),
+    body('withdrawal_id', 'withdrawal identification required').exists(),
+    body('payment_referenceId', 'payment reference required').exists()
 ];
 
 const UpdateBankDetailsValidator = [

@@ -4,7 +4,13 @@ const {Logger} =require('../../utils/index');
 
 module.exports = async(req,res) => {
     try{
-        const{amount, transaction_type, cloud_uuid} = req.body
+        const{
+            amount, 
+            transaction_type, 
+            cloud_uuid, 
+            withdrawal_id, 
+            payment_referenceId
+        } = req.body
         const user = await User.findOne({cloud_uuid: cloud_uuid})
         if(!user){
             return res.status(404).send({
@@ -20,14 +26,15 @@ module.exports = async(req,res) => {
             })
         }
         else if(transaction_type === "withdrawal"){
-            const transaction = new Transaction({
+            const transaction = await Transaction.create({
                 previous_balance: user.wallet.account_balance,
                 user_cloud_uuid: cloud_uuid,
                 fullname: user.firstname + ' '+ user.lastname,
                 amount,
-                transaction_type
+                transaction_type,
+                withdrawal_id,
+                payment_referenceId
             })
-            await transaction.save()
             await user.updateOne({
                 wallet: {
                     account_balance: user.wallet.account_balance - amount,

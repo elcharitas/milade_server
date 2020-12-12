@@ -7,6 +7,8 @@ const TransactionModel = new Schema ({
         user_cloud_uuid:{type:String},
         driver_cloud_uuid:{type:String},
         amount: {type:Number, required:true},
+        withdrawal_id: {type:String},
+        payment_referenceId: {type: String},
         user_id:{type:mongoose.Schema.Types.ObjectId, ref: 'User'},
         driver:{type:mongoose.Schema.Types.ObjectId, ref:'Driver'},
         transaction_type: {type:String, enum:["fund", "paid", "withdrawal"]},

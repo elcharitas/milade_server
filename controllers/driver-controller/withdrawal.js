@@ -4,7 +4,13 @@ const {Logger} =require('../../utils/index');
 
 module.exports = async(req,res) => {
     try{
-        const{amount, transaction_type, cloud_uuid} = req.body
+        const{
+            amount,
+             transaction_type, 
+             withdrawal_id,
+             payment_referenceId, 
+             cloud_uuid
+            } = req.body
         const driver = await Driver.findOne({cloud_uuid: cloud_uuid})
         if(!driver){
             return res.status(400).send({
@@ -20,15 +26,16 @@ module.exports = async(req,res) => {
             })
         }
         else if(transaction_type === "withdrawal"){
-            const transaction = new Transaction({
+            const transaction = await Transaction.create({
                 previous_balance: driver.wallet.account_balance,
                 driver_cloud_uuid: cloud_uuid,
                 fullname: driver.firstname + ' '+ driver.lastname,
                 amount,
+                withdrawal_id,
+                payment_referenceId,
                 transaction_type,
                 driver:driver._id
             })
-            await transaction.save()
             await driver.updateOne({
                 wallet: {
                     account_balance: driver.wallet.account_balance - amount,
