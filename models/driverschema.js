@@ -8,10 +8,10 @@ const DriverSchema = new Schema ({
     email: {type:String},
     profile_image: {type:String},
     gender:{type:String, enum:["Male", "Female"]},
+    payment_recipient_id: {type: String},
     cloud_uuid:{type:String},
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
     ratings:{type:Number},
-    
     wallet: {
         account_balance: {type:Number, default: 0},
         last_transaction_id: {type:mongoose.Schema.Types.ObjectId, ref:'Transaction'}

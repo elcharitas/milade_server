@@ -5,6 +5,7 @@ const User = new Schema ({
     firstname: {type: String},
     lastname: {type: String},
     username: {type: String},
+    payment_recipient_id: {type: String},
     ride_requests: {type: Number,default:0},
     bike_requests: {type: Number, default:0},
     delivery_requests:{type:Number, default:0},
