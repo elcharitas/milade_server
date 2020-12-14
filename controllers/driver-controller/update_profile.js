@@ -6,7 +6,7 @@ module.exports = async(req,res) => {
         const{id} = req.params
         const driver = await Driver.findOne({_id: id})
         const{firstname, lastname,gender, profile_image, phonenumber,
-        email, account_name, account_number, bank_name} = req.body
+        email, account_name, account_number, bank_name, payment_recipient_id} = req.body
 
       /*  if(email == driver.email){
             return res.status(409).send({status:"ERROR", message: "Email already exists"})
@@ -24,6 +24,7 @@ module.exports = async(req,res) => {
                 profile_image: profile_image || driver.profile_image,
                 phonenumber: phonenumber || driver.phonenumber,
                 email: email || driver.email,
+                payment_recipient_id: payment_recipient_id || driver.payment_recipient_id,
                 account_details: {
                     account_name: account_name|| driver.account_details.account_name ,
                     account_number: account_number || driver.account_details.account_number,
