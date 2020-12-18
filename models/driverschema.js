@@ -18,10 +18,10 @@ const DriverSchema = new Schema ({
     },
     account_details:{
         account_name: {type: String},
-        account_number:{type:Number},
+        account_number:{type:String},
         bank_name:{type:String}
     },
-
+    
     driver_lat: {type: Number, default: 0},
     driver_lng: {type:Number, default: 0},
     driver_rating: {type:Number, default:0},

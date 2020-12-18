@@ -13,7 +13,7 @@ module.exports = async(req,res) => {
             } = req.body
         const driver = await Driver.findOne({cloud_uuid: cloud_uuid})
         if(!driver){
-            return res.status(400).send({
+            return res.status(404).send({
                 status: "ERROR",
                 message: "Driver not found"
             })
