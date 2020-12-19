@@ -37,7 +37,7 @@ const VehicleValidator =[
 const RatingValidator =[
     body('rating', 'rating required').exists(),
     body('requestType', 'request type required').exists().isIn(['ride', 'bike', 'delivery']).trim(),
-    body('requestId', 'request id required').exists().isMongoId().trim(),
+    body('requestId', 'request id required').exists().trim(),
     body('review', 'review required').exists().trim(),
     body('userId', 'user cloud id required').exists().trim()
 ]
