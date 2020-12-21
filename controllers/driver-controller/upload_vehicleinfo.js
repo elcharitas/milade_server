@@ -31,8 +31,7 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('update_vehicle_details', error);
-        return res.status(400).send({
+        return res.status(500).send({
             status: "ERROR",
             payload: error.message
         })

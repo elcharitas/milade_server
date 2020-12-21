@@ -42,7 +42,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('update_profile', error);
         return res.status(500).send({
             status: "ERROR",
             payload: error.message

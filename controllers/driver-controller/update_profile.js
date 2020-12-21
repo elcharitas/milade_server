@@ -4,13 +4,16 @@ const {Logger} = require('../../utils/index');
 module.exports = async(req,res) => {
     try{
         const{id} = req.params
-        const driver = await Driver.findOne({_id: id})
         const{firstname, lastname,gender, profile_image, phonenumber,
-        email, account_name, account_number, bank_name, payment_recipient_id} = req.body
+            email, account_name, account_number, bank_name, payment_recipient_id} = req.body
 
-      /*  if(email == driver.email){
+        const driver = await Driver.findOne({_id: id});
+
+        const findEmail = await Driver.findOne({email: email});
+        
+        if(findEmail && email != driver.email){
             return res.status(409).send({status:"ERROR", message: "Email already exists"})
-        } */
+        } 
 
         if(!driver) return res.status(404).send({
             status: "ERROR",
@@ -38,7 +41,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('update_profile', error);
         return res.status(400).send({
             status: "ERROR",
             payload: error.message

@@ -4,11 +4,20 @@ const {Logger} = require('../../routes/index');
 module.exports = async(req,res) => {
     try{
         const{id} = req.params
-        const user = await User.findOne({_id: id})
-        const{firstname, lastname,gender, profile_image, phonenumber,
-        username, email} = req.body
+        const{
+            firstname, 
+            lastname,
+            gender, 
+            profile_image, 
+            phonenumber,
+            username, 
+            email
+        } = req.body
 
-        if(email == user.email){
+        const user = await User.findOne({_id: id})
+
+        const findEmail = await User.findOne({email: email})
+        if(findEmail && email !=user.email){
             return res.status(409).send({status:"ERROR", message: "Email already exists"})
         } 
 
@@ -33,7 +42,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('update_profile', error);
         return res.status(400).send({
             status: "ERROR",
             payload: error.message

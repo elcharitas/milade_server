@@ -66,7 +66,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('debit_wallet', error);
         return res.status(500).send({
             status: "ERROR",
             payload: error.message

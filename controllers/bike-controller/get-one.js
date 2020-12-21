@@ -13,7 +13,6 @@ module.exports= async(req,res)=> {
         })
     }
     catch(error){
-        Logger('get-all-bikerequests',error)
         res.status(500).send({
             status:'ERROR',
             payload: error.message

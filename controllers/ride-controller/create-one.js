@@ -43,7 +43,7 @@ module.exports= async(req,res)=> {
                 })  
             }
             else{
-                const rideRequest = new Ride({
+                const rideRequest = await Ride.create({
                     destination,
                     destinationLat,
                     destinationLng,
@@ -64,7 +64,6 @@ module.exports= async(req,res)=> {
                     userID,
                     requestCreatedAt
                 })
-                await rideRequest.save()
                 await user.updateOne({$inc: {ride_requests: 1}});
                 await driver.updateOne({$inc: {ride_requests: 1}});
                 return res.status(201).send({
@@ -75,7 +74,7 @@ module.exports= async(req,res)=> {
             }
         }
         else{
-            const rideRequest = new Ride({
+            const rideRequest = await Ride.create({
                 destination,
                 destinationLat,
                 destinationLng,
@@ -93,7 +92,6 @@ module.exports= async(req,res)=> {
                 userID,
                 requestCreatedAt
             })
-            await rideRequest.save()
             return res.status(201).send({
                 status: "OK",
                 message: "Ride request declined",
@@ -103,8 +101,7 @@ module.exports= async(req,res)=> {
         
     }
     catch(error){
-        Logger('create-ride-request',error)
-        res.status(500).send({
+        return res.status(500).send({
             status:'ERROR',
             payload: error.message
         })

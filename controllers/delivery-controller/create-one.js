@@ -45,7 +45,7 @@ module.exports= async(req,res)=> {
                 })  
             }
             else{
-                const deliveryRequest = new Delivery({
+                const deliveryRequest = await Delivery.create({
                     destination,
                     destinationLat,
                     destinationLng,
@@ -68,7 +68,6 @@ module.exports= async(req,res)=> {
                     deliveryRequestType,
                     requestCreatedAt
                 })
-                await deliveryRequest.save()
                 await user.updateOne({$inc: {delivery_requests: 1}});
                 await driver.updateOne({$inc: {delivery_requests: 1}});
                 return res.status(201).send({
@@ -79,7 +78,7 @@ module.exports= async(req,res)=> {
             }
         }
         else{
-            const deliveryRequest = new Delivery({
+            const deliveryRequest = await Delivery.create({
                 destination,
                 destinationLat,
                 destinationLng,
@@ -99,7 +98,6 @@ module.exports= async(req,res)=> {
                 deliveryRequestType,
                 requestCreatedAt
             })
-            await deliveryRequest.save()
             return res.status(201).send({
                 status: "OK",
                 message: "Delivery request declined",
@@ -108,8 +106,7 @@ module.exports= async(req,res)=> {
         }
     }
     catch(error){
-        Logger('create-delivery-request',error)
-        res.status(500).send({
+        return res.status(500).send({
             status:'ERROR',
             payload: error.message
         })

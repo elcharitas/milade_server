@@ -28,9 +28,8 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('user_accountprofile', error);
         return res.status(500).send({
-            status: "NO",
+            status: "ERROR",
             payload: error.message
         })
     }

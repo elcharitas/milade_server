@@ -25,8 +25,7 @@ module.exports= async(req,res)=> {
         }
     }
     catch(error){
-        Logger('queery-ride-request',error)
-        res.status(500).send({
+        return res.status(500).send({
             status:'ERROR',
             payload: error.message
         })

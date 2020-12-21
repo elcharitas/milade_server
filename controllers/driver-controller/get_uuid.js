@@ -19,7 +19,6 @@ module.exports = async(req,res) =>{
         }
     }
     catch(error){
-        Logger('get_cloud_uuid', error);
         return res.status(503).send({
             status: "EEROR",
             payload: error.message

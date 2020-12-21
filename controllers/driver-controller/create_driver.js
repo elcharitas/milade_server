@@ -26,7 +26,6 @@ module.exports = async(req,res) =>{
         }
     }
     catch(error){
-        Logger('create_driver', error);
         res.status(500).send({
 			status: 'ERROR',
 			payload: error.message

@@ -49,14 +49,13 @@ module.exports = async(req,res) => {
             })
         }
         else{
-            return res.status(404).send({
+            return res.status(400).send({
                 status: "ERROR", 
                 message: "Not a valid transaction type"
             })
         }
     }
     catch(error){
-        Logger('update_profile', error);
         return res.status(500).send({
             status: "ERROR",
             payload: error.message

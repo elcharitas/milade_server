@@ -27,17 +27,9 @@ module.exports = async(req,res) =>{
        
     }   
     catch(error){
-        Logger('query-driver-transactions', error);
         return res.status(500).send({
             status:"ERROR",
             payload: error.message
         })
     }
 }
-
-
-/*
-       const user =await Transactions.find({
-            $and: [{transaction_type: req.query.type}, 
-            {driver_cloud_uuid: req.query.driver}]})
-*/

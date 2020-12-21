@@ -29,7 +29,6 @@ module.exports = async(req,res) =>{
         }
     }   
     catch(error){
-        Logger('query-transactions', error);
         return res.status(500).send({
             status:"ERROR",
             payload: error.message

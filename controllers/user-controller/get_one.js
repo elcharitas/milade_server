@@ -22,7 +22,6 @@ module.exports = async(req,res) =>{
         }
     }
     catch(error){
-        Logger('get_user', error);
         return res.status(503).send({
             status: "ERROR",
             payload: error.message

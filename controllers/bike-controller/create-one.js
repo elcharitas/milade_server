@@ -42,7 +42,7 @@ module.exports= async(req,res)=> {
                 })  
             }
             else{
-                const bikeRequest = new Bike({
+                const bikeRequest = await Bike.create({
                     destination,
                     destinationLat,
                     destinationLng,
@@ -62,7 +62,6 @@ module.exports= async(req,res)=> {
                     userID,
                     requestCreatedAt
                 })
-                await bikeRequest.save();
                 await user.updateOne({$inc: {bike_requests: 1}});
                 await driver.updateOne({$inc: {bike_requests: 1}});
                 return res.status(201).send({
@@ -73,7 +72,7 @@ module.exports= async(req,res)=> {
             }
         }
         else{
-            const bikeRequest = new Bike({
+            const bikeRequest = await Bike.create({
                 destination,
                 destinationLat,
                 destinationLng,
@@ -90,7 +89,6 @@ module.exports= async(req,res)=> {
                 userID,
                 requestCreatedAt
             })
-            await bikeRequest.save()
             return res.status(201).send({
                 status: "OK",
                 message: "Bike request declined",
@@ -99,7 +97,6 @@ module.exports= async(req,res)=> {
         }
     }
     catch(error){
-        Logger('bike-request',error)
         res.status(500).send({
             status:'ERROR',
             payload: error.message

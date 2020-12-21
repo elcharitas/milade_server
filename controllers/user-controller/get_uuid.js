@@ -1,5 +1,4 @@
 const User = require('../../models/userschema');
-const {Logger} = require('../../utils/index');
 
 //retrieve An Agents Profile with id
 module.exports = async(req,res) =>{

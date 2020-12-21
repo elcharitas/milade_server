@@ -50,7 +50,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('post-driver-review', error);
 		res.status(503).send({
 			state: 'ERROR',
 			payload: error.message

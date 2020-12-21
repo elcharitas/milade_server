@@ -27,7 +27,6 @@ module.exports= async(req,res)=> {
 
     }
     catch(error){
-        Logger('queery-delivery-request',error)
         res.status(500).send({
             status:'ERROR',
             payload: error.message

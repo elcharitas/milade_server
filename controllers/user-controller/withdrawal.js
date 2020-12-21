@@ -20,7 +20,7 @@ module.exports = async(req,res) => {
         }
 
         else if(amount > user.wallet.account_balance || amount < 0){
-            return res.status(404).send({
+            return res.status(400).send({
                 status: "ERROR",
                 message: "Insufficient funds"
             })
@@ -55,7 +55,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        Logger('user_withdrawal', error);
         return res.status(500).send({
             status: "ERROR",
             payload: error.message

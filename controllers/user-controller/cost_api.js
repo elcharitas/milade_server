@@ -1,4 +1,3 @@
-
 module.exports = async(req,res) => {
     try{
         const{distance, time, requestType, size, economy_choice} = req.body
@@ -88,7 +87,6 @@ module.exports = async(req,res) => {
         }
     }
     catch(error){
-        console.log(error)
         return res.status(503).send({
             status: "ERROR",
             payload: error.message

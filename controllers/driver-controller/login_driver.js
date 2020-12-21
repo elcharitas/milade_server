@@ -32,7 +32,6 @@ module.exports = async(req,res) =>{
         }
     }
     catch(error){
-        Logger('login_driver', error);
         res.status(500).send({
 			status: 'ERROR',
 			payload: error.message

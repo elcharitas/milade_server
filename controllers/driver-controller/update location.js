@@ -18,7 +18,6 @@ module.exports = async(req,res) => {
         })
     }
     catch(error){
-        console.log(error)
         return res.status(500).send({
             status: "ERROR",
             payload: error.message

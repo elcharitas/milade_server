@@ -1,6 +1,5 @@
 const User = require('../../models/userschema');
 const {Logger} = require('../../utils/index');
-const {body} = require('express-validator')
 
 module.exports =async(req,res) =>{
     try{
@@ -27,7 +26,6 @@ module.exports =async(req,res) =>{
         }
     }
     catch(error){
-        Logger('create_user', error);
         res.status(500).send({
 			status: 'ERROR',
 			payload: error.message
