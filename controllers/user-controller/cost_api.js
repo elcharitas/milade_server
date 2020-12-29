@@ -4,7 +4,7 @@ module.exports = async(req,res) => {
         
         if(requestType === "Bike"){
             let distances = distance * 9;
-            let timeAmt = time * 17;
+            let timeAmt = time * 15;
             let sumFare= distances + timeAmt
 
             return res.status(200).send({
@@ -16,7 +16,7 @@ module.exports = async(req,res) => {
 
         else if(requestType === "Delivery"){
             let distances = distance * 9;
-            let timeAmt = time * 17;
+            let timeAmt = time * 15;
             let sumFare= distances + timeAmt
 
             return res.status(200).send({
