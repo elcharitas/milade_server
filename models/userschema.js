@@ -24,5 +24,7 @@ const User = new Schema ({
         account_balance: {type:Number, default: 0},
         last_transaction_id: {type:mongoose.Schema.Types.ObjectId, ref:'Transaction'}
     }
+}, {
+    timestamps: true
 })
 module.exports =mongoose.model('User', User)
