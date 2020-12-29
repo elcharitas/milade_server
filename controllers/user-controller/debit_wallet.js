@@ -59,7 +59,7 @@ module.exports = async(req,res) => {
                })
             await receiver.updateOne({
                 wallet: {
-                    account_balance: receiver.wallet.account_balance + ( 0.85 * amount),
+                    account_balance: receiver.wallet.account_balance + Math.floor(0.85 * amount),
                     last_transaction_id: transaction.id
                 }
             })
