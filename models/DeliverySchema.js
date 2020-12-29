@@ -15,7 +15,7 @@ const DeliverySchema = new Schema({
     totalRequestDuration: {type:String},
     requestPayType: {type: String},
     requestPayStatus: {type: String, enum:["completed", "declined", "cancelled"]},
-    requestPaymentID: {type:mongoose.Schema.Types.ObjectId, ref:'Transaction'},
+    requestPaymentID: {type: String},
     requestMadeStatus: {type:String, enum:["completed", "declined", "cancelled"]},
     deliveryReceiverPhonenumber: {type:String, required:true},
     deliveryReceiverFullname: {type:String, required:true},

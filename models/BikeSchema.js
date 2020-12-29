@@ -14,7 +14,7 @@ const BikeSchema = new Schema({
     totalRequestDistance: {type: String, required:true},
     totalRequestDuration: {type:String},
     requestPayType: {type: String},
-    requestPaymentID: {type:mongoose.Schema.Types.ObjectId, ref:'Transaction'},
+    requestPaymentID: {type:String},
     requestPayStatus: {type: String, enum:["completed", "declined", "cancelled"]},
     requestMadeStatus: {type:String, enum:["completed", "declined", "cancelled"] },
     requestCreatedAt: {type: Number},
