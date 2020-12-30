@@ -41,8 +41,13 @@ module.exports = async(req,res) => {
                 driver: driver._id
             })
             await user.updateOne({$push: {reviews: create_review.id}})
-            await driver.updateOne({$push: {reviews: create_review.id}})
-            await driver.updateOne({$inc: {ratings: rating}})
+            /*await driver.updateOne({$push: {reviews: create_review.id}})
+            await driver.updateOne({$inc: {ratings: rating}})*/
+
+            await Driver.updateMany({_id: driver.id}, {
+                $push: {reviews: create_review.id},
+                $inc: {ratings: rating, total_rated: 1}
+            })
             return res.status(200).send({
                 state: "OK",
                 message: "Review posted succesfully"

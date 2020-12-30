@@ -11,7 +11,8 @@ const DriverSchema = new Schema ({
     payment_recipient_id: {type: String},
     cloud_uuid:{type:String},
     reviews: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Review' }],
-    ratings:{type:Number},
+    ratings:{type:Number, default:0},
+    total_rated: {type: Number, default:0},
     wallet: {
         account_balance: {type:Number, default: 0},
         last_transaction_id: {type:mongoose.Schema.Types.ObjectId, ref:'Transaction'}
@@ -24,7 +25,6 @@ const DriverSchema = new Schema ({
     
     driver_lat: {type: Number, default: 0},
     driver_lng: {type:Number, default: 0},
-    driver_rating: {type:Number, default:0},
     driver_status:{type:String},
     driver_address:{type:String},
 
