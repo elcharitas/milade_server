@@ -2,10 +2,14 @@ module.exports = async(req,res) => {
     try{
         const{distance, time, requestType, size, economy_choice} = req.body
         
+        let rideBaseFare = 175
+        let bikeBaseFare = 35
+        let deliveryBaseFare = 400
+
         if(requestType === "Bike"){
-            let distances = distance * 9;
-            let timeAmt = time * 15;
-            let sumFare= distances + timeAmt
+            let distances = distance * 5;
+            let timeAmt = time * 8;
+            let sumFare=  bikeBaseFare + distances + timeAmt
 
             return res.status(200).send({
                 status: "OK",
@@ -15,8 +19,8 @@ module.exports = async(req,res) => {
         }
 
         else if(requestType === "Delivery"){
-            let distances = distance * 9;
-            let timeAmt = time * 15;
+            let distances = distance * 5;
+            let timeAmt = time * 8;
             let sumFare= distances + timeAmt
 
             return res.status(200).send({
@@ -26,9 +30,9 @@ module.exports = async(req,res) => {
             })
         }
         else if(requestType==="Ride" && economy_choice=="standard"){
-            let distances = distance * 30;
-            let timeAmt = time * 34;
-            let sumFare= distances + timeAmt
+            let distances = distance * 10;
+            let timeAmt = time * 15;
+            let sumFare= rideBaseFare + distances + timeAmt
 
             return res.status(200).send({
                 status: "OK",
@@ -37,15 +41,14 @@ module.exports = async(req,res) => {
             })
         }
         else if(requestType==="Ride" && economy_choice==="comfort2"){
-            let distances = distance * 30;
-            let timeAmt = time * 34;
-            let sumFare= distances + timeAmt 
-            let half = Math.floor((sumFare/3)+sumFare)
-
+            let distances = distance * 10;
+            let timeAmt = time * 20;
+            let sumFare= rideBaseFare + distances + timeAmt 
+            
             return res.status(200).send({
                 status: "OK",
                 message: "Total cost",
-                payload: half
+                payload: sumFare
             })
         }
         else{
