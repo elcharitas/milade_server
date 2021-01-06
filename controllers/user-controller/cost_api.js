@@ -59,11 +59,11 @@ module.exports = async(req,res) => {
             }
         }
         else if(requestType==="Ride" && economy_choice=="standard"){
-            if(distance <= 5 && time <= 10) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
+            if(distance <= 5) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
 
             else if(distance <= 15){
-                let distances = distance * 15;
-                let timeAmt = time * 25;
+                let distances = distance * 14;
+                let timeAmt = time * 24;
                 let sumFare= rideBaseFare + distances + timeAmt
     
                 return res.status(200).send({
@@ -85,7 +85,7 @@ module.exports = async(req,res) => {
             }
         }
         else if(requestType=="Ride" && economy_choice=="comfort2"){
-            if(distance <= 5 && time <= 10) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 550})
+            if(distance <= 5) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 550})
 
             else if(distance <= 15){
                 let distances = distance * 15;
