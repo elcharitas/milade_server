@@ -6,7 +6,8 @@ module.exports = async(req,res) => {
         let bikeBaseFare = 70
 
         if(requestType === "Bike"){
-            if(distance <= 5 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+            if(distance <= 3 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 70})
+            else if(distance == 4 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
             else if(distance <= 5 && time <=13) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 140})
             else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
             else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
@@ -36,7 +37,8 @@ module.exports = async(req,res) => {
         }
 
         else if(requestType === "Delivery"){
-            if(distance <= 5 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+            if(distance <= 3 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 70})
+            else if(distance == 4 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
             else if(distance <= 5 && time <=13) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 140})
             else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
             else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
