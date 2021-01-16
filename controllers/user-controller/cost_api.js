@@ -8,16 +8,27 @@ module.exports = async(req,res) => {
         if(requestType === "Bike"){
             if(distance <= 3 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 70})
             else if(distance == 4 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+
+            else if(distance <= 5 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+            
             else if(distance <= 5 && time <=13) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 140})
-            else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
-            else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
-            else if(distance == 7 && time <=19) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 210})
-            else if(distance == 7 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
-            else if(distance == 9 && time <=17) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
-            else if(distance == 9 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 250})
-            else if(distance == 9 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 270})
-            else if(distance == 10 && time <=21) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
-            else if(distance == 10 && time <=30) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 370})
+            
+            else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 160})
+
+            else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
+
+            else if(distance == 7 && time <=19) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
+
+            else if(distance == 7 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 210})
+
+            else if(distance == 9 && time <=17) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 220})
+
+            else if(distance == 9 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
+           
+            else if(distance == 9 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 250})
+           
+            else if(distance == 10 && time <=21) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 320})
+            else if(distance == 10 && time <=30) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
             else if(distance == 12 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 430})
             else if(distance == 12 && time <=35) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 450})
             else if(distance == 13 && time <=24) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 500})
@@ -39,16 +50,27 @@ module.exports = async(req,res) => {
         else if(requestType === "Delivery"){
             if(distance <= 3 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 70})
             else if(distance == 4 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+
+            else if(distance <= 5 && time <=11) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 100})
+            
             else if(distance <= 5 && time <=13) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 140})
-            else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
-            else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
-            else if(distance == 7 && time <=19) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 210})
-            else if(distance == 7 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
-            else if(distance == 9 && time <=17) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
-            else if(distance == 9 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 250})
-            else if(distance == 9 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 270})
-            else if(distance == 10 && time <=21) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
-            else if(distance == 10 && time <=30) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 370})
+            
+            else if(distance <= 5 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 160})
+
+            else if(distance == 7 && time <=15) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 170})
+
+            else if(distance == 7 && time <=19) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 190})
+
+            else if(distance == 7 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 210})
+
+            else if(distance == 9 && time <=17) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 220})
+
+            else if(distance == 9 && time <=20) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 230})
+           
+            else if(distance == 9 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 250})
+           
+            else if(distance == 10 && time <=21) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 320})
+            else if(distance == 10 && time <=30) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 350})
             else if(distance == 12 && time <=25) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 430})
             else if(distance == 12 && time <=35) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 450})
             else if(distance == 13 && time <=24) return res.status(200).send({status: 'OK', message: 'Total cost', payload: 500})
