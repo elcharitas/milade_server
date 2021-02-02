@@ -43,5 +43,7 @@ const DriverSchema = new Schema ({
     is_verified:{type:Boolean, default:false},
     is_flagged: {type:Boolean, default:false}
 
+},{
+    timestamps: true
 })
 module.exports =mongoose.model('Driver', DriverSchema)
